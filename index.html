@@ -7,9 +7,12 @@
 		height: 515px;
 	}
 </style>
+    <meta name="google-signin-client_id" content=" 618857995993-dq9qjrdchhle1pg9lj2i40qu504f1dgg.apps.googleusercontent.com .apps.googleusercontent.com">
 <head>
 	<title> Academic Journal </title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/auth.js"></script>
 </head>
 <body>
 	<div class="content">
@@ -22,9 +25,23 @@
 					<button type="Submit" class="btn btn-primary" style="background-color: black; color: white; margin-right: 10px">
 						<a style="color: white;" href="Login.html"> Log In</a>
 					</button>
+                    
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
 					<button type="Submit" class="btn btn-primary" style="background-color: black; color: maroon;">
 						<a style="color: white;" href="SignUp.html"> Sign Up</a>
 					</button>
+                    
+                    <a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+
 				</div>
 			</div>
 		</div>
@@ -45,6 +62,7 @@
 		</div>
 
 		</div>
+
 	
 </body>
 </html>
